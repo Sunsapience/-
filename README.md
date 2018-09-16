@@ -6,7 +6,4 @@
 
 
     text_rcnn: Recurrent Convolutional Neural Networks for Text Classification
-
-
-
     han: Hierarchical Attention Network for Document Classification
