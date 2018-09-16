@@ -1,4 +1,4 @@
-# 单 GPU
+
 import logging,pickle
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
 
@@ -15,7 +15,7 @@ from models.text_rcnn_0 import Model as text_rcnn
 from models.text_rnn_0 import Model as text_rnn
 from models.text_sentence_0 import Model as han    
 
-from mutil_gpu.fun import average_gradients
+from mutil_gpu.average_grad import average_gradients
 ##########################################
 PS_OPS = ['Variable', 'VariableV2', 'AutoReloadVariable']
 def assign_to_device(device, ps_device='/cpu:0'):
@@ -178,13 +178,7 @@ def main(_):
                 
 
                 logging.info('**********************************')
-                print('**********************************')
-                
-                print('In iteration: {}'.format(i+1))
-                print('Train accurate: {}'.format(float('%.3f' % train_accurate)))                        
-                print('Test accurate: {}'.format(float('%.3f' % test_accurate)))
 
-                saver.save(sess,'./save/muil_model_sentence-',global_step=i+1)
 
 if __name__ == '__main__':
     tf.app.run()
